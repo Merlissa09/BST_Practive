@@ -1,5 +1,6 @@
 public class BinarySearchTree {
     Node root;
+    int count;
 
     public void insert(Node node) {
         root = insertHelper(root, node);
@@ -25,6 +26,28 @@ public class BinarySearchTree {
         displayHelper(root);
     }
     
+    public int countNumberOfNodes(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return 1 + countNumberOfNodes(root.left) + countNumberOfNodes(root.right);
+    }
+
+    public int countNumberOfLeafNodes(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        if (root.left == null && root.right == null) {
+            return 1;
+        }
+
+        return countNumberOfLeafNodes(root.left) + countNumberOfLeafNodes(root.right);
+
+
+    }
+
     private void displayHelper(Node root) {
         if(root != null) {
             displayHelper(root.left);

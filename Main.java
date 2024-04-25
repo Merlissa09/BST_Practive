@@ -16,6 +16,8 @@ public class Main {
         tree.display();
         System.out.println("5 " + tree.search(5));
         System.out.println("80 " + tree.search(80));
-
+        int count = tree.countNumberOfNodes(tree.root);
+        System.out.println("number of nodes" + count);
+        System.out.println(tree.countNumberOfLeafNodes(tree.root));
     }
 }
